@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pacman
+  name: pacman
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pacman
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pacman
+    spec:
+      containers:
+      - image: ghcr.io/ampc/pacman:2.0
+        name: pacman
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 10m
+status: {}
